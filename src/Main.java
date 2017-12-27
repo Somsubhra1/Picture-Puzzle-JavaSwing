@@ -22,7 +22,7 @@ public class Main extends JFrame implements ActionListener {
     private int moves;
 
 
-    Main() {
+    private Main() {
         //Frame Setting:
 
         setLayout(null);
@@ -244,12 +244,12 @@ public class Main extends JFrame implements ActionListener {
                 (b5.getIcon() == ic5) && (b6.getIcon() == ic6) &&
                 (b7.getIcon() == ic7) && (b8.getIcon() == ic8) &&
                 (b9.getIcon() == ic9)) {
-            if(moves>2) { //check cheat
+            if(moves>3) { //check cheat
                 ic9=new ImageIcon("img/9.jpg");
                 b9.setIcon(ic9);
                 JOptionPane.showMessageDialog(null,"You win in "+moves+" moves!!");
             }
-            else {
+            else if(moves==2){
                 JOptionPane.showMessageDialog(this,"DO NOT CHEAT!!!!","ALERT",JOptionPane.WARNING_MESSAGE);
                 moves=0;
             }
