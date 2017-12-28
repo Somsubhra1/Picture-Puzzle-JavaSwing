@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -6,7 +7,7 @@ public class Main extends JFrame implements ActionListener {
 
     //All Components declared:
 
-    private JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,sampleButtton, shuffle;
+    private JButton b1,b2,b3,b4,b5,b6,b7,b8,b9, shuffle;
     private Icon ic1=new ImageIcon("img/1.jpg");
     private Icon ic2=new ImageIcon("img/2.jpg");
     private Icon ic3=new ImageIcon("img/3.jpg");
@@ -18,9 +19,8 @@ public class Main extends JFrame implements ActionListener {
     private Icon ic9=new ImageIcon("img/9a.jpg");
     private Icon sampleIcon=new ImageIcon("img/sample.jpg");
     private JLabel movesLabel=new JLabel();
-
+    private JLabel sampleLabel;
     private int moves;
-
 
     private Main() {
         //Frame Setting:
@@ -28,7 +28,7 @@ public class Main extends JFrame implements ActionListener {
         setLayout(null);
         setTitle("Picture Puzzle");
         setSize(630,550);
-        setVisible(true);
+        getContentPane().setBackground(Color.PINK);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Button setting
@@ -42,7 +42,7 @@ public class Main extends JFrame implements ActionListener {
         b8=new JButton(ic8);
         b9=new JButton(ic9);
         shuffle=new JButton("Shuffle");
-        sampleButtton=new JButton(sampleIcon);
+        sampleLabel=new JLabel(sampleIcon);
         b1.setBounds(10,80,100,100);
         b2.setBounds(110,80,100,100);
         b3.setBounds(210,80,100,100);
@@ -55,21 +55,24 @@ public class Main extends JFrame implements ActionListener {
         b8.setBounds(110,280,100,100);
         b9.setBounds(210,280,100,100);
 
-        sampleButtton.setBounds(400, 120,200,200);
-       shuffle.setBounds(280, 400,80,50);
+        sampleLabel.setBounds(400, 126,200,200);
+        shuffle.setBounds(280, 400,80,50);
+        shuffle.setBackground(Color.ORANGE);
 
         JLabel label=new JLabel("Sample: ");
-        label.setBounds(350,200,70,20);
+        label.setBounds(350,220,70,20);
 
         moves=0;
 
-       movesLabel.setText("Moves: "+moves);
-       movesLabel.setBounds(290,40, 100,10);
+        movesLabel.setText("Moves: "+moves);
+        movesLabel.setBounds(290,40, 100,10);
 
-       //adding components
+        //adding components
 
 
-        add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(b7);add(b8);add(b9);add(sampleButtton);add(shuffle);add(label);add(movesLabel);
+        add(b1);add(b2);add(b3);add(b4);add(b5);add(b6);add(b7);add(b8);add(b9);add(sampleLabel);add(shuffle);add(label);add(movesLabel);
+
+        setVisible(true);
 
         //adding actionListener to the buttons:
 
@@ -79,7 +82,6 @@ public class Main extends JFrame implements ActionListener {
         shuffle.addActionListener(this);
 
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
